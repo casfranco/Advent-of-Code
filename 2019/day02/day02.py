@@ -59,9 +59,10 @@ def part1(input,noun=12,verb=2):
     print("Part1 : {}.".format(new_data[0]))
 
 def part2(input,target_output):    
+    data_init = np.loadtxt(input,delimiter=',').astype(int)
     for noun in range(100):
         for verb in range(100):
-            data = np.loadtxt(input,delimiter=',').astype(int) #TODO -> Improve method, avoid read text at every step.
+            data = np.copy(data_init)
             data[1]=noun
             data[2]=verb
             new_data=run_data(data)
